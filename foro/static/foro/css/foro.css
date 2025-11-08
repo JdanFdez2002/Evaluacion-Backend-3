@@ -1,0 +1,30 @@
+.card-img-top {
+    object-fit: cover;
+    height: 250px;
+}
+
+.card-title {
+    font-weight: bold;
+    color: #333;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.pagination .page-link {
+    color: #007bff;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #6c757d;
+}
+
+.foro-imagen img {
+  width: 175px;      /* ancho fijo */
+  height: 175px;     /* alto fijo */
+  object-fit: cover; /* recorta sin deformar */
+  border-radius: 10px;
+  flex-shrink: 0;
+}

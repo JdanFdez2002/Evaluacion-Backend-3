@@ -1,0 +1,64 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'foro/css/foro.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    {% for post in page_obj %}
+    <div class="card mb-4 shadow-sm p-3 d-flex flex-row align-items-start gap-4 post-card">
+        
+        {% if post.foto %}
+            <div class="foro-imagen">
+            <img src="{{ post.foto.url }}" alt="{{ post.titulo }}">
+            </div>
+        {% endif %}
+        
+        <div class="card-body">
+        <h4 class="card-title">{{ post.titulo }}</h4>
+        <p class="card-text">{{ post.contenido }}</p>
+        <p class="text-muted"><small>Publicado: {{ post.creado|date:"d M Y H:i" }}</small></p>
+        </div>
+
+    </div>
+    {% empty %}
+    <p>No hay posts para mostrar.</p>
+    {% endfor %}
+  <!-- Paginación -->
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+      {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a class="page-link" href="?page=1">&laquo; Primero</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled"><span class="page-link">&laquo; Primero</span></li>
+        <li class="page-item disabled"><span class="page-link">Anterior</span></li>
+      {% endif %}
+
+      <li class="page-item disabled">
+        <span class="page-link">Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+      </li>
+
+      {% if page_obj.has_next %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Última &raquo;</a>
+        </li>
+      {% else %}
+        <li class="page-item disabled"><span class="page-link">Siguiente</span></li>
+        <li class="page-item disabled"><span class="page-link">Última &raquo;</span></li>
+      {% endif %}
+    </ul>
+  </nav>
+
+</div>
+{% endblock %}
+

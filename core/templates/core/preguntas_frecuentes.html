@@ -1,0 +1,128 @@
+{% extends "core/base.html" %}
+
+{% block publicidad_uno %}
+<div class="d-flex justify-content-center mb-4">
+    <a href="https://www.micoca-cola.cl" target="_blank">
+        <img src="https://www.playas-fuerteventura.com/wp-content/uploads/publiwebfin2.gif" alt="Publicidad 1" class="img-fluid">
+    </a>
+</div>
+{% endblock %}
+
+{% block publicidad_dos %}
+<div class="d-flex justify-content-center">
+    <a href="https://www.micoca-cola.cl" target="_blank">
+        <img src="https://images.fastcompany.com/image/upload/f_auto,q_auto,c_fit,w_1024,h_1024/wp-cms-2/2024/05/p-1-91116120-crushed-coke-logo.gif" alt="Publicidad 1" class="img-fluid">
+        <img src="https://mobilemarketingmagazine.com/wp-content/uploads/2024/04/MMM-Diet-Coke.gif" alt="Publicidad 1" class="img-fluid">
+        <img src="https://imgproxy.domestika.org/unsafe/w:820/plain/src://content-items/015/095/913/interior_img1-original.gif?1709892943" alt="Publicidad 1" class="img-fluid">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1p6wa1eqbaVC4OLDwyVkxYslURzAUWF8ASg&s" alt="Publicidad 1" class="img-fluid">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/bc8ba299700257.5ef8d43c1728d.gif" alt="Publicidad 1" class="img-fluid"> 
+        <img src="https://hips.hearstapps.com/hmg-prod/images/giphy-2-1528364495.gif" alt="Publicidad 1" class="img-fluid"> 
+    </a>
+</div>
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-5 display-6 fw-bold text-white text-shadow">Preguntas Frecuentes</h1>
+
+<div class="container py-4">
+    <div class="accordion" id="faqAccordion">
+
+        <!-- Pregunta 1 -->
+        <div class="accordion-item bg-light mb-3 shadow-sm">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    ¿Es legal leer manga y manhwa aquí?
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Legalmente no es la gran cosa. Leer manga o manhwa en este sitios es como andar en bicicleta sin casco por la mitad de concepción, todos lo hacen, pero si te comes un auto, pasaras tiempo en el hospital. No es ilegal para el que lee, ni para mi
+                     pero los que suben los capítulos son los que corren el riezgo. Disfrutalo con el mas puro estilo pirata.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 2 -->
+        <div class="accordion-item bg-light mb-3 shadow-sm">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    ¿Cómo eligen qué mangas y manhwas mostrar?
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Entre debates, discusiones y largas noches sin dormir, nuestros dos unicos desarrolladores debaten arduamente entre ellos para ver qué
+                    merece ser compartido. Acción, fantasía, drama, romance... si nos hace decir “¡wow!”, va a la lista.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 3 -->
+        <div class="accordion-item bg-light mb-3 shadow-sm">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    ¿Puedo sugerir un manga o manhwa para agregar?
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    No
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 4 -->
+        <div class="accordion-item bg-light mb-3 shadow-sm">
+            <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    ¿Por qué algunos capítulos no están actualizados?
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    A veces los traductores descansan, mientras vamos a comprar latigos nuevos... Pero los capitulos se suben lo antes posible.
+                </div>
+            </div>
+        </div>
+
+        <!-- Pregunta 5 -->
+        <div class="accordion-item bg-light mb-3 shadow-sm">
+            <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    ¿Tienen versión móvil?
+                </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Sí, la página está diseñada para verse bkn en cualquier pantalla, finge estudiar mientras pirateas, tus padres estarán orgullosos.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+/* Texto con sombra para encabezados */
+.text-shadow {
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+}
+
+/* Hover efecto para el accordion */
+.accordion-button:not(.collapsed) {
+    background-color: #f8f9fa;
+    color: #000;
+    font-weight: bold;
+}
+
+.accordion-item {
+    border-radius: 0.5rem;
+}
+
+.accordion-body {
+    font-size: 0.9rem;
+    color: #444;
+}
+</style>
+
+{% endblock %}
