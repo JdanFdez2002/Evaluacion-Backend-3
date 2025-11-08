@@ -1,10 +1,16 @@
-﻿{% extends "core/base.html" %}
+{% extends "core/base.html" %}
 {% load crispy_forms_tags %}
 
 {% block extra_css %}
 <style>
-.invalid-feedback,
-.text-danger {
+.contacto-body,
+.contacto-body p,
+.contacto-body label,
+.contacto-body .form-label,
+.contacto-body .text-danger,
+.contacto-body .invalid-feedback,
+.contacto-body strong,
+#error_1_id_asunto {
     color: #000 !important;
 }
 </style>
@@ -18,7 +24,7 @@
         <div class="card-header bg-dark text-white">
           <h4 class="mb-0">Contacto KapowStore</h4>
         </div>
-        <div class="card-body">
+        <div class="card-body contacto-body">
           {% if enviado %}
             <div class="alert alert-success" role="alert">
               <strong>Formulario enviado con exito.</strong> Gracias por escribirnos!
