@@ -1,8 +1,7 @@
-from django.shortcuts import render, redirect
+﻿from django.shortcuts import render, redirect
 from django.urls import reverse
 from .forms import ContactForm
 
-# Create your views here.
 
 def contacto(request):
     enviado = request.GET.get('ok') is not None

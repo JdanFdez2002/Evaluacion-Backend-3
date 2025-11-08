@@ -3,11 +3,8 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 from .models import Post, Categoria
 
-# Create your views here.
 def foro_list(request):
     queryset = Post.objects.all()
-
-    # Parámetros de filtro
     categoria_id = request.GET.get('categoria')
     q = request.GET.get('q')
 
@@ -19,14 +16,12 @@ def foro_list(request):
             Q(titulo__icontains=q) | Q(contenido__icontains=q)
         )
 
-    # Orden por fecha descendente
     queryset = queryset.order_by('-creado')
 
     paginator = Paginator(queryset, 5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    # Preservar filtros en los enlaces de paginación
     params = request.GET.copy()
     params.pop('page', None)
     querystring = params.urlencode()

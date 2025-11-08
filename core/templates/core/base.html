@@ -1,187 +1,96 @@
-<!doctype html>
-
+﻿<!doctype html>
 <html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ site_name }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asimovian&family=Gantari:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    {% block extra_css %}{% endblock %}
+    <style>
+        .text-shadow { text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); }
+        h1, h2, h3, h4, h5, h6 { font-family: "Press Start 2P", system-ui; font-weight: 200; font-style: normal; color: white; }
+        h6 { color: black; }
+        p, a { font-family: "Orbitron", sans-serif; font-optical-sizing: auto; font-style: normal; color: white; }
+        .alert.publicidad img { max-width: 300px; width: 100%; height: auto; border-radius: 8px; }
+    </style>
+</head>
+<body style="min-height: 100vh; background-image: url('https://media.istockphoto.com/id/1336079356/vector/seamless-zigzag-dark-comic-background.jpg?s=612x612&w=0&k=20&c=7q56H1Ea-j4o3Ct14RQN8f4-O5yJ_45H9JT5R7vD22I='); background-repeat: repeat; background-size: 10%;">
+    <section class="banner text-white text-center d-flex align-items-center justify-content-center position-relative" style="height: 400px; background-size: cover; background-position: center; background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c13c0d2f-1bc2-47e5-b959-70aaa89f724d/dfq0co7-ee8f85f7-33ea-4ad0-baf4-ead495e572f3.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi9jMTNjMGQyZi0xYmMyLTQ3ZTUtYjk1OS03MGFhYTg5ZjcyNGQvZGZxMGNvNy1lZThmODVmNy0zM2VhLTRhZDAtYmFmNC1lYWQ0OTVlNTcyZjMuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.vI2aD4IwANEsMUxQeZxbbSzkqH7sMRQgFom3EeWlno0');">
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.5);"></div>
+        <div class="container position-relative">
+            <h1 class="display-5 fw-bold text-shadow">Ka-Pow!</h1>
+            <p class="lead mb-4">ESTA ES TU BAHIA MANGAKA</p>
+        </div>
+    </section>
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ site_name }}</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Asimovian&family=Gantari:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
-
-
-        {% block extra_css %}{% endblock %}
-
-
-
-        <style>
-        .text-shadow {
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: "Press Start 2P", system-ui;
-            font-weight: 200;
-            font-style: normal;
-            color: white;
-        }
-        h6{
-            color: black;
-        }
-        p, a{
-            font-family: "Orbitron", sans-serif;
-            font-optical-sizing: auto;
-            font-style: normal;
-            color: white;
-        }
-
-        /* Para todos los gifs dentro de alert con clase .publicidad */
-        .alert.publicidad img {
-            max-width: 300px;   /* ancho máximo */
-            width: 100%;        /* que ocupe todo el contenedor si es menor */
-            height: auto;       /* mantener proporción */
-            border-radius: 8px; /* opcional */
-        }
-        </style>
- 
-
-    </head>
-
-    <body style="
-    min-height: 100vh; 
-    background-image: url('https://media.istockphoto.com/id/1336079356/vector/seamless-zigzag-dark-comic-background.jpg?s=612x612&w=0&k=20&c=7q56H1Ea-j4o3Ct14RQN8f4-O5yJ_45H9JT5R7vD22I=');
-    background-repeat: repeat;
-    background-size: 10%;
-    ">
-                
-        <!-- Banner -->
-        <section class="banner text-white text-center d-flex align-items-center justify-content-center position-relative" 
-            style="height: 400px; background-size: cover; background-position: center; background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c13c0d2f-1bc2-47e5-b959-70aaa89f724d/dfq0co7-ee8f85f7-33ea-4ad0-baf4-ead495e572f3.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi9jMTNjMGQyZi0xYmMyLTQ3ZTUtYjk1OS03MGFhYTg5ZjcyNGQvZGZxMGNvNy1lZThmODVmNy0zM2VhLTRhZDAtYmFmNC1lYWQ0OTVlNTcyZjMuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.vI2aD4IwANEsMUxQeZxbbSzkqH7sMRQgFom3EeWlno0');">
-
-            <!-- Overlay oscuro para mejorar contraste -->
-            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.5);"></div>
-
-            <!-- Contenido centrado -->
-            <div class="container position-relative">
-                <h1 class="display-5 fw-bold text-shadow">¡Ka-Pow!</h1>
-                <p class="lead mb-4">ESTA ES TU BAHÍA MANGAKA</p>
-            </div>
-        </section>
-
-
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="https://www.youtube.com/watch?v=8vt2QndnbVU" target="_blank"><img src="https://i.pinimg.com/originals/c9/49/05/c94905e5e7b3b8cda44f1f3a23e0a128.gif" alt="Logo" class="img-fluid" style="max-height: 40px;"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="{% url 'quienes_somos' %}">Quiénes Somos</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="{% url 'preguntas_frecuentes' %}">Preguntas Frecuentes</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="{% url 'galeria' %}">Galería de imágenes</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="{% url 'foro:lista' %}">Foro</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="{% url 'contacto:contacto' %}">Contacto</a>
-                </li>
-                
-            </ul>
-            </div>
-        </div>
-        </nav>
-
-
-
-        <!-- Anuncio horizontal dinamico 1 -->
-        <div class="alert alert-dark text-center mb-0 publicidad" role="alert">
-            {% block publicidad_uno %}
-            {% endblock %}
-        </div>
-
-        <!-- Contenido dinámico -->
-        <div class="container-fluid my-5 p-0">
-            {% block content %}
-            {% endblock %}
-        </div>
-
-        <!-- Anuncio horizontal dinamico 2 -->
-        <div class="alert alert-dark text-center mb-0 publicidad" role="alert">
-            {% block publicidad_dos %}
-            {% endblock %}
-        </div>
-
-
-
-        <!-- Footer -->
-        <footer class="bg-dark text-white pt-4">
-        <div class="container">
-            <div class="row">
-            
-            <!-- Adorno izquierda -->
-            <div class="col-md-4 mb-3">
-                <h5>{{ site_name }}</h5>
-                <p class="mb-0">Posts totales: {{ total_posts }}</p>
-            </div>
-
-            <!-- Sección enlaces (Navbar repetido) -->
-            <div class="col-md-4 mb-3">
-                <h5>Enlaces</h5>
-                <ul class="list-unstyled">
-                <li><a href="{% url 'home' %}" class="text-white text-decoration-none">Home</a></li>
-                <li><a href="{% url 'quienes_somos' %}" class="text-white text-decoration-none">Quiénes Somos</a></li>
-                <li><a href="{% url 'preguntas_frecuentes' %}" class="text-white text-decoration-none">Preguntas Frecuentes</a></li>
-                <li><a href="{% url 'galeria' %}" class="text-white text-decoration-none">Galería</a></li>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'quienes_somos' %}">Quienes Somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'preguntas_frecuentes' %}">Preguntas Frecuentes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'galeria' %}">Galeria de imagenes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'foro:lista' %}">Foro</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contacto:contacto' %}">Contacto</a></li>
                 </ul>
             </div>
+        </div>
+    </nav>
 
-            <!-- Sección redes sociales -->
-            <div class="col-md-4 mb-3">
-                <h5>Nuestras redes</h5>
-                <a href="https://i.pinimg.com/originals/64/4b/0f/644b0f12e3f1dcb3890db07459e13e4c.gif" class="text-white me-3" target="_blank">
-                <i class="bi bi-facebook"></i> Facebook
-                </a><br>
-                <a href="https://i.pinimg.com/originals/64/4b/0f/644b0f12e3f1dcb3890db07459e13e4c.gif" class="text-white me-3" target="_blank">
-                <i class="bi bi-instagram"></i> Instagram
-                </a><br>
-                <a href="https://i.pinimg.com/originals/64/4b/0f/644b0f12e3f1dcb3890db07459e13e4c.gif" class="text-white" target="_blank">
-                <i class="bi bi-twitter"></i> Twitter
-                </a>
-            </div>
-            </div>
+    <div class="alert alert-dark text-center mb-0 publicidad" role="alert">
+        {% block publicidad_uno %}{% endblock %}
+    </div>
 
+    <div class="container-fluid my-5 p-0">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div class="alert alert-dark text-center mb-0 publicidad" role="alert">
+        {% block publicidad_dos %}{% endblock %}
+    </div>
+
+    <footer class="bg-dark text-white pt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>{{ site_name }}</h5>
+                    <p class="mb-0">Posts totales: {{ total_posts }}</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'home' %}" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="{% url 'quienes_somos' %}" class="text-white text-decoration-none">Quienes Somos</a></li>
+                        <li><a href="{% url 'preguntas_frecuentes' %}" class="text-white text-decoration-none">Preguntas Frecuentes</a></li>
+                        <li><a href="{% url 'galeria' %}" class="text-white text-decoration-none">Galeria</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Nuestras redes</h5>
+                    <a href="https://i.pinimg.com/originals/64/4b/0f/644b0f12e3f1dcb3890db07459e13e4c.gif" class="text-white me-3" target="_blank"><i class="bi bi-facebook"></i> Facebook</a><br>
+                    <a href="https://i.pinimg.com/originals/64/4b/0f/644b0f12e3f1dcb3890db07459e13e4c.gif" class="text-white me-3" target="_blank"><i class="bi bi-instagram"></i> Instagram</a><br>
+                    <a href="https://i.pinimg.com/originals/64/4b/0f/644b0f12e3f1dcb3890db07459e13e4c.gif" class="text-white" target="_blank"><i class="bi bi-twitter"></i> Twitter</a>
+                </div>
+            </div>
             <hr class="border-light">
-
-            <!-- Copyright -->
             <div class="text-center pb-3">
-            <small>&copy; 2025 Kapow Store | Todos los derechos reservados</small>
+                <small>&copy; 2025 Kapow Store | Todos los derechos reservados</small>
             </div>
         </div>
-        </footer>
+    </footer>
 
-        <!-- Bootstrap Icons (CDN) -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-
-
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    </body>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
 </html>
