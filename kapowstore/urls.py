@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from core import views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -23,12 +23,17 @@ from foro import views as foro_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path('quienes-somos/', views.quienes_somos, name='quienes_somos'),
-    path('preguntas-frecuentes/', views.preguntas_frecuentes, name='preguntas_frecuentes'),
-    path('galeria/', views.galeria, name='galeria'),
-    path('foro/', foro_views.foro_list, name='foro'),
+    # URLs por app
+    path('', include('core.urls')),
+    path('foro/', include('foro.urls', namespace='foro')),
+    path('contacto/', include('contacto.urls', namespace='contacto')),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # Django servirá las imágenes en modo DEBUG
+    # Django servirá las imágenes en modo DEBUG
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    # Catch-all después de patrones de media/estáticos
+    urlpatterns += [path('<path:path>', views.custom_404_catchall)]
+
+# Handler personalizado para 404
+handler404 = 'core.views.custom_404'

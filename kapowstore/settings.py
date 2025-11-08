@@ -25,7 +25,19 @@ SECRET_KEY = 'django-insecure-vw@(&e6atv5e9)*dbbgx%!6=x+yli8tg)n4b0r0!0l$^7yk_78
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# Hosts permitidos para DEBUG=False (local + producción)
+# Agrega tu dominio real, por ejemplo: 'tu-dominio.com'
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '[::1]',
+]
+
+# Evita problemas de CSRF al usar dominios/URLs reales con HTTPS
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost',
+    'http://127.0.0.1',
+]
 
 
 # Application definition
@@ -37,8 +49,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'core',
-    'foro'
+    'foro',
+    'contacto',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +78,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'core.context_processors.kapow_globals',
             ],
         },
     },
@@ -116,6 +132,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Crispy Forms
+CRISPY_ALLOWED_TEMPLATE_PACKS = [
+    'bootstrap5',
+]
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

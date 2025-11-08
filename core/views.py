@@ -1,4 +1,4 @@
-from django.shortcuts import render
+﻿from django.shortcuts import render
 
 # Create your views here.
 def home(request):
@@ -12,3 +12,16 @@ def preguntas_frecuentes(request):
 
 def galeria(request):
     return render(request, 'core/galeria.html')
+
+
+def custom_404(request, exception):
+    return render(request, 'core/404.html', status=404)
+
+
+# Vista catch-all para 404 cuando DEBUG=True
+def custom_404_catchall(request, path=None):
+    return render(request, 'core/404.html', status=404)
+
+
+# contacto se movió a la app 'contacto'
+

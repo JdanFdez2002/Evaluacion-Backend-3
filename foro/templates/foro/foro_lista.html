@@ -7,6 +7,25 @@
 
 {% block content %}
 <div class="container my-5">
+    <!-- Filtros -->
+    <form method="get" class="row g-3 mb-4">
+        <div class="col-md-4">
+            <label for="categoria" class="form-label text-white">Categoría</label>
+            <select name="categoria" id="categoria" class="form-select">
+                <option value="">Todas</option>
+                {% for c in categorias %}
+                    <option value="{{ c.id }}" {% if c.id|stringformat:'s' == categoria_actual %}selected{% endif %}>{{ c.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="q" class="form-label text-white">Buscar</label>
+            <input type="text" name="q" id="q" value="{{ q }}" class="form-control" placeholder="Título o contenido">
+        </div>
+        <div class="col-md-2 d-flex align-items-end">
+            <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+        </div>
+    </form>
     {% for post in page_obj %}
     <div class="card mb-4 shadow-sm p-3 d-flex flex-row align-items-start gap-4 post-card">
         
@@ -31,10 +50,10 @@
     <ul class="pagination justify-content-center">
       {% if page_obj.has_previous %}
         <li class="page-item">
-          <a class="page-link" href="?page=1">&laquo; Primero</a>
+          <a class="page-link" href="?page=1{% if querystring %}&{{ querystring }}{% endif %}">&laquo; Primero</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+          <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if querystring %}&{{ querystring }}{% endif %}">Anterior</a>
         </li>
       {% else %}
         <li class="page-item disabled"><span class="page-link">&laquo; Primero</span></li>
@@ -47,10 +66,10 @@
 
       {% if page_obj.has_next %}
         <li class="page-item">
-          <a class="page-link" href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+          <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if querystring %}&{{ querystring }}{% endif %}">Siguiente</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Última &raquo;</a>
+          <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}{% if querystring %}&{{ querystring }}{% endif %}">Última &raquo;</a>
         </li>
       {% else %}
         <li class="page-item disabled"><span class="page-link">Siguiente</span></li>
@@ -61,4 +80,3 @@
 
 </div>
 {% endblock %}
-
