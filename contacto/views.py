@@ -1,4 +1,5 @@
 import logging
+from smtplib import SMTPDataError
 
 from django.conf import settings
 from django.core.mail import send_mail
@@ -33,9 +34,11 @@ def contacto(request):
                     recipient_list=[settings.DEFAULT_FROM_EMAIL],
                     fail_silently=False,
                 )
+            except SMTPDataError:
+                form.add_error(None, "Se alcanzó el límite de envíos. Espera unos segundos y vuelve a intentarlo.")
             except Exception:
                 logger.exception("Error al enviar correo de contacto")
-                form.add_error(None, "No se pudo enviar el mensaje. Inténtalo nuevamente en unos minutos.")
+                form.add_error(None, "No se pudo enviar el mensaje. Intentalo nuevamente en unos minutos.")
             else:
                 return redirect(reverse("contacto:exito"))
     else:

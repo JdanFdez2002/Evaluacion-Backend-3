@@ -8,6 +8,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
+from django.utils import timezone
 
 from .models import Manga
 
@@ -38,26 +39,15 @@ def manga_api(request):
         titulo = payload.get("titulo")
         autor = payload.get("autor", "")
         descripcion = payload.get("descripcion", "")
-        fecha_publicacion = payload.get("fecha_publicacion")
         portada = payload.get("portada")
-        if not (titulo and fecha_publicacion and portada):
-            return JsonResponse(
-                {"error": "Faltan campos obligatorios (titulo, fecha_publicacion, portada)"},
-                status=400,
-            )
+        if not (titulo and portada):
+            return JsonResponse({"error": "Faltan campos obligatorios (titulo, portada)"}, status=400)
         try:
-            from datetime import date
-
-            try:
-                fecha_obj = date.fromisoformat(fecha_publicacion)
-            except ValueError:
-                return JsonResponse({"error": "fecha_publicacion debe ser YYYY-MM-DD"}, status=400)
-
             manga = Manga.objects.create(
                 titulo=titulo,
                 autor=autor,
                 descripcion=descripcion,
-                fecha_publicacion=fecha_obj,
+                fecha_publicacion=timezone.now(),
                 portada=portada,
             )
         except Exception as exc:

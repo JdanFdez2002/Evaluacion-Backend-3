@@ -17,11 +17,15 @@
       {% for manga in mangas %}
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
           <div class="card h-100 hover-scale">
-            <div class="ratio ratio-3x4">
-              <img src="{{ manga.portada }}" class="card-img-top object-fit-cover" alt="{{ manga.titulo }}">
-            </div>
+            <a href="{{ manga.portada }}" target="_blank" rel="noopener" class="ratio ratio-3x4 d-block">
+              <img src="{{ manga.portada }}" class="card-img-top object-fit-cover" alt="{{ manga.titulo }}" loading="lazy" referrerpolicy="no-referrer">
+            </a>
             <div class="card-body">
-              <h6 class="fw-bold mb-1">{{ manga.titulo }}</h6>
+              <h6 class="fw-bold mb-1">
+                <a href="{{ manga.portada }}" target="_blank" rel="noopener" class="link-dark text-decoration-none">
+                  {{ manga.titulo }}
+                </a>
+              </h6>
               <p class="small text-muted mb-2">{{ manga.autor }}</p>
               <p class="small text-muted mb-0">{{ manga.descripcion|truncatechars:90 }}</p>
             </div>

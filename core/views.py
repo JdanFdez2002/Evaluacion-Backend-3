@@ -41,12 +41,18 @@ def custom_404_catchall(request, path=None):
 
 def _ensure_group_with_permissions(group_name, perm_codenames):
     """
-    Obtiene o crea el grupo. Si es nuevo, asigna permisos solo una vez.
+    Obtiene o crea el grupo y garantiza los permisos del modelo Manga de la app feed.
     """
     group, created = Group.objects.get_or_create(name=group_name)
+    perms = Permission.objects.filter(
+        codename__in=perm_codenames, content_type__app_label="feed"
+    )
     if created:
-        perms = Permission.objects.filter(codename__in=perm_codenames)
         group.permissions.set(perms)
+    else:
+        missing = perms.exclude(id__in=group.permissions.values_list("id", flat=True))
+        if missing:
+            group.permissions.add(*missing)
     return group
 
 
