@@ -1,0 +1,18 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="card shadow-sm text-center">
+        <div class="card-body">
+          <div class="mb-3 fs-1">✅</div>
+          <h3 class="fw-bold mb-3">Mensaje enviado</h3>
+          <p class="text-muted mb-4">Gracias por escribirnos. Revisaremos tu mensaje y te contactaremos pronto.</p>
+          <a href="{% url 'home' %}" class="btn btn-primary">Volver al inicio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

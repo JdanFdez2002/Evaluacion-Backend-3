@@ -103,26 +103,14 @@
 </div>
 
 <style>
-/* Texto con sombra para encabezados */
-.text-shadow {
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
-}
-
-/* Hover efecto para el accordion */
+.text-shadow { text-shadow: 2px 2px 6px rgba(0,0,0,0.8); }
+.accordion-item { border-radius: 0.75rem; overflow: hidden; }
 .accordion-button:not(.collapsed) {
-    background-color: #f8f9fa;
-    color: #000;
+    background-color: rgba(255, 122, 122, 0.06);
+    color: var(--accent);
     font-weight: bold;
 }
-
-.accordion-item {
-    border-radius: 0.5rem;
-}
-
-.accordion-body {
-    font-size: 0.9rem;
-    color: #444;
-}
+.accordion-body { font-size: 0.95rem; color: var(--text); }
 </style>
 
 {% endblock %}

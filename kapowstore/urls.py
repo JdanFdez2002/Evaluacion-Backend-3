@@ -10,6 +10,7 @@ urlpatterns = [
     path('', include('core.urls')),
     path('foro/', include('foro.urls', namespace='foro')),
     path('contacto/', include('contacto.urls', namespace='contacto')),
+    path('feed/', include('feed.urls', namespace='feed')),
 ]
 
 if settings.DEBUG:

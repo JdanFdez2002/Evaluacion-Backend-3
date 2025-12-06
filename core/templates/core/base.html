@@ -13,14 +13,158 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     {% block extra_css %}{% endblock %}
     <style>
-        .text-shadow { text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); }
-        h1, h2, h3, h4, h5, h6 { font-family: "Press Start 2P", system-ui; font-weight: 200; font-style: normal; color: white; }
-        h6 { color: black; }
-        p, a { font-family: "Orbitron", sans-serif; font-optical-sizing: auto; font-style: normal; color: white; }
+        :root {
+            --bg: #070b14;
+            --panel: #0c1424;
+            --card: #0f1b32;
+            --border: rgba(255, 255, 255, 0.08);
+            --text: #e8ecff;
+            --muted: #a9b7d9;
+            --accent: #ff7a7a;
+            --accent-soft: #7dd3fc;
+            --glow: 0 10px 35px rgba(255, 122, 122, 0.25);
+        }
+
+        body {
+            color: var(--text);
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255, 122, 122, 0.12), transparent 26%),
+                radial-gradient(circle at 80% 0%, rgba(125, 211, 252, 0.12), transparent 30%),
+                var(--bg);
+            background-attachment: fixed;
+            font-family: "Orbitron", sans-serif;
+        }
+
+        .text-shadow { text-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Press Start 2P", system-ui;
+            font-weight: 200;
+            letter-spacing: 0.5px;
+            color: var(--text);
+        }
+        p { color: var(--text); }
+        a {
+            color: var(--accent-soft);
+            text-decoration: none;
+            transition: color 0.2s ease, text-shadow 0.2s ease;
+        }
+        a:hover { color: var(--accent); text-shadow: 0 0 12px rgba(255, 122, 122, 0.4); }
+
+        .navbar {
+            background: linear-gradient(90deg, rgba(12, 20, 36, 0.95), rgba(8, 12, 20, 0.95));
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(6px);
+        }
+        .navbar-dark .navbar-nav .nav-link { color: var(--muted); }
+        .navbar-dark .navbar-nav .nav-link.active,
+        .navbar-dark .navbar-nav .nav-link:hover { color: var(--text); }
+
+        .publicidad {
+            background: rgba(12, 20, 36, 0.9);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
         .alert.publicidad img { max-width: 300px; width: 100%; height: auto; border-radius: 8px; }
+
+        .card {
+            background: linear-gradient(140deg, var(--card), var(--panel));
+            border: 1px solid var(--border);
+            color: var(--text);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .bg-light { background-color: var(--panel) !important; }
+        .card.bg-light { background: linear-gradient(140deg, var(--card), var(--panel)) !important; }
+        .card .card-header {
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
+        .card .text-muted, .card .small { color: var(--muted) !important; }
+        .hover-scale:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6), var(--glow);
+        }
+
+        .btn-primary {
+            background: linear-gradient(120deg, #ff7a7a, #ffc15e);
+            border: none;
+            color: #0a0f1c;
+            font-weight: 700;
+            box-shadow: var(--glow);
+        }
+        .btn-primary:hover {
+            background: linear-gradient(120deg, #ff9b9b, #ffd27a);
+            box-shadow: 0 12px 26px rgba(255, 122, 122, 0.35);
+        }
+
+        .btn-outline-secondary {
+            color: var(--text);
+            border-color: var(--border);
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .btn-outline-secondary:hover {
+            color: #0a0f1c;
+            background: var(--accent-soft);
+            border-color: var(--accent-soft);
+            box-shadow: var(--glow);
+        }
+
+        .btn-outline-light {
+            color: var(--text);
+            border-color: var(--border);
+        }
+        .btn-outline-light:hover {
+            color: #0a0f1c;
+            background: var(--accent-soft);
+            border-color: var(--accent-soft);
+            box-shadow: var(--glow);
+        }
+
+        .btn-dark {
+            background: #0f172a;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+        }
+
+        .accordion-item { background-color: var(--panel); border: 1px solid var(--border); }
+        .accordion-button {
+            background: transparent;
+            color: var(--text);
+            box-shadow: none;
+        }
+        .accordion-button:not(.collapsed) {
+            color: var(--accent);
+            background: rgba(255, 122, 122, 0.06);
+            box-shadow: none;
+        }
+        .accordion-button:focus {
+            box-shadow: 0 0 0 0.2rem rgba(255, 122, 122, 0.15);
+            border-color: var(--accent);
+        }
+        .accordion-body { color: var(--text); }
+
+        label { color: var(--text); }
+        .form-control, .form-select {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 0.2rem rgba(255, 122, 122, 0.15);
+        }
+        .form-control::placeholder { color: var(--muted); }
+
+        footer {
+            background: linear-gradient(180deg, rgba(12, 20, 36, 0.95), rgba(7, 11, 20, 0.98));
+            border-top: 1px solid var(--border);
+        }
+        small { color: var(--muted); }
     </style>
 </head>
-<body style="min-height: 100vh; background-image: url('https://media.istockphoto.com/id/1336079356/vector/seamless-zigzag-dark-comic-background.jpg?s=612x612&w=0&k=20&c=7q56H1Ea-j4o3Ct14RQN8f4-O5yJ_45H9JT5R7vD22I='); background-repeat: repeat; background-size: 10%;">
+<body style="min-height: 100vh;">
     <section class="banner text-white text-center d-flex align-items-center justify-content-center position-relative" style="height: 400px; background-size: cover; background-position: center; background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c13c0d2f-1bc2-47e5-b959-70aaa89f724d/dfq0co7-ee8f85f7-33ea-4ad0-baf4-ead495e572f3.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi9jMTNjMGQyZi0xYmMyLTQ3ZTUtYjk1OS03MGFhYTg5ZjcyNGQvZGZxMGNvNy1lZThmODVmNy0zM2VhLTRhZDAtYmFmNC1lYWQ0OTVlNTcyZjMuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.vI2aD4IwANEsMUxQeZxbbSzkqH7sMRQgFom3EeWlno0');">
         <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.5);"></div>
         <div class="container position-relative">
@@ -42,7 +186,10 @@
                     <li class="nav-item"><a class="nav-link" href="{% url 'preguntas_frecuentes' %}">Preguntas Frecuentes</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'galeria' %}">Galeria de imagenes</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'foro:lista' %}">Foro</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'registro_editor' %}">Registro Editor</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'registro_lector' %}">Registro Lector</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'contacto:contacto' %}">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'feed:premium_feed' %}">Feed Premium</a></li>
                 </ul>
             </div>
         </div>

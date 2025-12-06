@@ -1,0 +1,18 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="card shadow-sm text-center">
+        <div class="card-body">
+          <h4 class="mb-3">Registro completado</h4>
+          <p class="text-muted mb-4">Tu cuenta se creó y fue asociada a su grupo.</p>
+          <a class="btn btn-dark me-2" href="{% url 'admin:index' %}">Ir al admin</a>
+          <a class="btn btn-outline-secondary" href="{% url 'home' %}">Volver al inicio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

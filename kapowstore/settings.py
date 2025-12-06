@@ -31,6 +31,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '[::1]',
+    'testserver',
 ]
 
 # Evita problemas de CSRF al usar dominios/URLs reales con HTTPS
@@ -54,6 +55,7 @@ INSTALLED_APPS = [
     'core',
     'foro',
     'contacto',
+    'feed',
 ]
 
 MIDDLEWARE = [
@@ -150,3 +152,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import os
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# Email (Mailtrap)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_PORT = 2525
+EMAIL_HOST_USER = 'b5492e70c82f41'
+EMAIL_HOST_PASSWORD = 'a4bdc5a629fbb6'
+EMAIL_USE_TLS = True
+EMAIL_TIMEOUT = 10
+DEFAULT_FROM_EMAIL = 'no-reply@kapowstore.local'

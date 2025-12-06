@@ -1,21 +1,20 @@
 {% extends "core/base.html" %}
-{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="container py-5">
   <div class="row justify-content-center">
-    <div class="col-lg-8">
+    <div class="col-lg-6">
       <div class="card shadow-sm">
         <div class="card-header bg-dark text-white">
-          <h4 class="mb-0">Contacto KapowStore</h4>
+          <h4 class="mb-0">Registro de Lector Premium</h4>
         </div>
         <div class="card-body">
-          <p class="text-muted">Envíanos tu consulta y la revisaremos a la brevedad.</p>
+          <p class="text-muted">Crea una cuenta de Lector Premium con acceso de solo lectura al contenido.</p>
           <form method="post" novalidate>
             {% csrf_token %}
-            {{ form|crispy }}
-            <div class="d-grid mt-3">
-              <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+            {{ form.as_p }}
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">Crear cuenta de Lector</button>
             </div>
           </form>
         </div>
